@@ -17,9 +17,9 @@ class WishController extends AbstractController
     }
 
     /**
-     * @Route("/wish/detail", name="wish_detail")
+     * @Route("/wish/detail{id}", name="wish_detail", methods={"GET"}, requirements={"id": "[0-9]+"})
      */
-    public function detail(): Response
+    public function detail($id): Response
     {
         return $this->render('detail/list.html.twig');
     }
