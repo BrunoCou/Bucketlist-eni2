@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
 
-        {% block javascripts %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/bucketlist/public/img/favicon.png">
+    <link rel="stylesheet" href="/bucketlist/public/css/style.css">
+    <title>{% block title %} Bucketlist {% endblock %}</title>
+</head>
+<body>
+<header>
+
+ <h1 class="titreAccueil"><img src="{{ asset('img/logo.png') }}">Bucketlist</h1>
+    <nav >
+        <div>
+            <a href="{{ path('app_main_home') }}" title="go back home"> Accueil</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block body %} Lahha {% endblock %}
+
+</main>
+
+</body>
+<footer>&copy; Bucketlist {{ "now"|date('Y') }}  <a href="{{ path('app_main_aboutus') }}">About Us</a></footer>
 </html>
