@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/bucketlist/public/img/favicon.png">
     <link rel="stylesheet" href="/bucketlist/public/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <title>{% block title %} Bucketlist {% endblock %}</title>
 </head>
 <body>
@@ -18,15 +19,21 @@
     <nav >
         <div>
             <a href="{{ path('app_main_home') }}" title="go back home"> Accueil</a>
+            <a href="{{ path('wish_list')}}" title="Ma liste à faire avantde die">Ma liste</a>
+            <a href="{{ path('wish_detail',{id: 566}) }}">Details</a>
         </div>
     </nav>
 </header>
 
 <main>
-    {% block body %} Lahha {% endblock %}
+    {% block body %}  {% endblock %}
 
 </main>
 
 </body>
-<footer>&copy; Bucketlist {{ "now"|date('Y') }}  <a href="{{ path('app_main_aboutus') }}">About Us</a></footer>
+<footer>&copy; Bucketlist {{ "now"|date('Y') }}
+    <a href="{{ path('app_main_aboutus') }}">About Us</a>
+    <a href="{{ path('app_main_legalstuff') }}">Mention Legal</a>
+</footer>
+{%  block script %} {%  endblock %}
 </html>

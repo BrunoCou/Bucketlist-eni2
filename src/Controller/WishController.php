@@ -13,14 +13,16 @@ class WishController extends AbstractController
      */
     public function list(): Response
     {
-        return $this->render('wish/list.html.twig');
+        return $this->render('wish/list.html.twig',[]);
     }
 
     /**
-     * @Route("/wish/detail{id}", name="wish_detail", methods={"GET"}, requirements={"id": "[0-9]+"})
+     * @Route("/wish/detail/{id}", name="wish_detail", methods={"GET"}, requirements={"id": "[0-9]+"})
      */
     public function detail($id): Response
     {
-        return $this->render('detail/list.html.twig');
+        return $this->render('wish/detail.html.twig', [
+            "id" => $id
+        ]);
     }
 }
