@@ -1,8 +1,17 @@
 {%  extends 'base.html.twig' %}
 
 
+
 {% block body %}
-{{ id }}
+
+
+    <h1>{{ detail.title }}</h1>
+    <h2>Auteur : {{ detail.author }}</h2>
+    <h3> Date de creation: {{ detail.dateCreataed |date("d/m/Y") }}</h3>
+    <p>{{ detail.description }}</p>
+
+
+
 
 
 {% endblock %}
