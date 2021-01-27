@@ -1,0 +1,16 @@
+{%  extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <h2>Ajouter une nouvelle chose a faire avant de mourir !</h2>
+    <div>
+        {{ form_start(wishform) }}
+        {{ form_widget(wishform) }}
+
+        <button type="submit">! Ajouter !</button>
+        {{ form_end(wishform) }}
+
+    </div>
+
+{% endblock %}

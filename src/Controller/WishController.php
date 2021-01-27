@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\WishType;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,5 +38,15 @@ class WishController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/wish/create", name="wish_create")
+     */
+    public function addWish(): Response
+    {
+        $form = $this->createForm(WishType::class);
+        return $this->render('wish/create.html.twig', [
+            "wishform" => $form->createView()
+        ]);
+    }
 
 }
