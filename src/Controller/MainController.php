@@ -36,25 +36,24 @@ class MainController extends  AbstractController
      * @param EntityManagerInterface $entityManager
      */
     public function donneeEntre(EntityManagerInterface $entityManager){
-//        $sujet = new Wish();
-//        $sujet->setTitle('Acheter une maison à la campagne');
-//        $sujet->setAuthor('Vivi');
-//        $sujet->setIsPublished(true);
-//        $sujet->setDescription('Pour être peinard sans voisins! ');
-//        $sujet->setDateCreataed(new \DateTime());
+        $faker = \Faker\Factory::create("fr_FR");
+        $faker->sentence;
+        $faker->name;
+        $faker->paragraph;
+
+
+
+        $sujet2 = new Wish();
+        $sujet2->setTitle($faker->sentence);
+        $sujet2->setAuthor($faker->name);
+        $sujet2->setIsPublished(true);
+        $sujet2->setDescription($faker->paragraph);
+        $sujet2->setDateCreataed(new \DateTime());
+
+ //       $entityManager->persist($sujet);
+        $entityManager->persist($sujet2);
 //
-//
-//        $sujet2 = new Wish();
-//        $sujet2->setTitle('Faire le PC pour la belle mere');
-//        $sujet2->setAuthor('Jean');
-//        $sujet2->setIsPublished(false);
-//        $sujet2->setDescription('pour voir quel effet ça fait');
-//        $sujet2->setDateCreataed(new \DateTime());
-//
-//        $entityManager->persist($sujet);
-//        $entityManager->persist($sujet2);
-//
-//        $entityManager->flush();
+        $entityManager->flush();
     return $this->redirectToRoute("app_main_home");
     }
 
