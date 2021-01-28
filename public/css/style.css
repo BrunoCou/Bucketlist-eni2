@@ -1,0 +1,53 @@
+body{
+    background: #ffc002;
+
+}
+footer{
+    color: #B0413E;
+    position:absolute;
+    bottom:40px;
+}
+
+nav{
+    display: inline;
+    width: 60px;
+    height: 100px;
+}
+
+main{
+    display: inline;
+    font-family: cursive;
+}
+
+
+
+
+/* Formulaire d'ajout d'un wish */
+form label{
+    display: block;
+}
+
+form[name="wish"]{
+    background: #fdff8e;
+    margin-left: 200px;
+    height: 200px;
+    width: 600px;
+    padding: 20px;
+
+}
+
+form button{
+    margin-top: 15px;
+    margin-left: 30px;
+    border: solid 1px cadetblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input{
+    width: 600px;
+}
+
+textarea{
+    width: 600px;
+}
