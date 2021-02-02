@@ -48,6 +48,10 @@ class WishController extends AbstractController
         // créer une instance
         $wish = new Wish();
 
+        // hydrater les propriété qui vont manquer
+        $wish->setDateCreataed(new \DateTime());
+        $wish->setIsPublished(true);
+
        // créer une instance du form en lui associant notre entité
         $form = $this->createForm(WishType::class, $wish);
 
@@ -55,19 +59,19 @@ class WishController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            // hydrater les propriété manquante
-            $wish->setDateCreataed(new \DateTime());
-            $wish->setIsPublished(true);
-
 
 
             //declenche l'insert dans la BDD
             $entityManager->persist($wish);
             $entityManager->flush();
+
+            $this -> addFlash('succes','Vous avez créer le wish');
+
+            return $this->redirectToRoute('wish_detail', ["id"=>$wish->getId()]);
         }
 
         //affiche la page twig
-        return $this->redirectToRoute('app_main_home', [
+        return $this->render('wish/create.html.twig', [
             "wishform" => $form->createView()
         ]);
     }

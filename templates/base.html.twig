@@ -13,7 +13,20 @@
     <title>{% block title %} Bucketlist {% endblock %}</title>
 </head>
 <body>
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
 <header>
+
+    <div>
+        <a href="{{ path('app_register') }}"> Créer un compte </a>
+        <a href="{{ path('app_login') }}">Se connecter</a>
+    </div>
 
  <h1 class="titreAccueil"><img src="{{ asset('img/logo.png') }}">Bucketlist</h1>
     <nav >
@@ -35,6 +48,7 @@
 </body>
 <footer>&copy; Bucketlist {{ "now"|date('Y') }}
     <a href="{{ path('app_main_aboutus') }}">About Us</a>
+    <a href="{{ path('app_logout') }}">Me deconnecter</a>
 
 </footer>
 {%  block script %} {%  endblock %}
